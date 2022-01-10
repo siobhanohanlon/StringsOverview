@@ -20,34 +20,41 @@ void main()
 	//Display Both Strings
 	printf("\n-String 1 is: %s\n-String 2 is: %s\n", str1, str2);
 
+#pragma region LengthBothStrings
+
 	//Find and Display Length
 	result = (strlen(str1) + strlen(str2));
 	printf("-The Length of both strings is %d\n", result);
+#pragma endregion
 
+#pragma region CompareStringsByLength
 	//Compare both strings and Display Bigger
 	result = strncmp(str1, str2);
 
-	if (result > 0)
+	if (result < 0)
 	{
 		printf("-%s is bigger than %s\n", str1, str2);
 	}
-	
+
 	else if (result == 0)
 	{
 		printf("-The strings are the same\n");
 	}
-	
+
 	else
 	{
 		printf("-%s is bigger than %s\n", str2, str1);
 	}
 
+#pragma endregion
+
+#pragma region CompareStringsByFirstLetter
 	//Compare number of Characters
 	result = strncmp(str1, str2, compare);
 
 	if (result > 0)
 	{
-		printf("-%s is a bigger substring than %s\n", str1, str2);
+		printf("-%s has bigger first character than %s\n", str1, str2);
 	}
 
 	else if (result == 0)
@@ -57,8 +64,9 @@ void main()
 
 	else
 	{
-		printf("-%s is a bigger substring than %s\n", str2, str1);
+		printf("-%s has bigger first character than %s\n", str2, str1);
 	}
+#pragma endregion
 
 	//Concatenate Str2 to Str1 and Display
 	result = (strlen(str1))+(strlen(str2));
@@ -69,8 +77,8 @@ void main()
 
 	//Concatenate first 3 Letters of Str2 to Str1
 	result = strlen(str1);
-	strncat(str1, str2, 3);
-	str1[result + 3] = '\0';
+	strncat(str1, str2, compare);
+	str1[result + compare] = '\0';
 
 	printf("-String1 after Concatenationed 3 Letters to String2 is %s\n", str1);
 
